@@ -22,8 +22,8 @@ export const HeroSection = () => {
         </h1>
         
         <p className="text-muted-foreground max-w-[700px] text-lg mb-8">
-          A collection of open source, production-ready AI agent components. 
-          Simply install with CLI and integrate — just like shadcn.
+          A collection of open source, production-ready AI agent components for Python. 
+          Simply install with uv and integrate — just like shadcn.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -53,7 +53,7 @@ export const HeroSection = () => {
                 <span className="flex items-center gap-2">
                   <Terminal className="h-4 w-4 text-muted-foreground" /> 
                   <span className="text-muted-foreground">$</span> 
-                  <span className="text-foreground">npx agent-cli@latest init</span>
+                  <span className="text-foreground">uv tool install agentscape</span>
                 </span>
                 <span className="mt-2 flex items-center gap-2">
                   <span className="text-accent">✓</span> 

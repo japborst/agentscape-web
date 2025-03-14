@@ -8,7 +8,7 @@ export const InstallSection = () => {
   const { toast } = useToast();
   const [copied, setCopied] = React.useState(false);
 
-  const installCommand = 'npx agent-cli@latest init';
+  const installCommand = 'uv tool install agentscape';
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(installCommand);
@@ -32,8 +32,8 @@ export const InstallSection = () => {
             Installation is simple
           </h2>
           <p className="text-muted-foreground text-lg max-w-[600px] mb-8">
-            Get started with AgentScape in seconds. Use our CLI to install
-            components directly into your project.
+            Get started with AgentScape in seconds. Use Python's uv package manager
+            to install components directly into your project.
           </p>
           
           <div className="w-full max-w-2xl mx-auto bg-muted rounded-lg overflow-hidden mb-8">
@@ -61,10 +61,11 @@ export const InstallSection = () => {
           <div className="flex flex-col space-y-2 text-left bg-muted/50 p-4 rounded-lg border border-border/50 w-full max-w-2xl mx-auto">
             <p className="text-sm font-medium">After installation, import and use:</p>
             <pre className="bg-card p-3 rounded text-sm overflow-x-auto">
-              <code>{`import { SearchAgent } from "@/components/search-agent";
+              <code>{`from agentscape.agents import SearchAgent
 
-// Then use in your component
-<SearchAgent placeholder="Ask anything..." />`}</code>
+# Then use in your application
+agent = SearchAgent(model="gpt-4", system_prompt="You are a helpful assistant.")
+agent.run("What is the capital of France?")`}</code>
             </pre>
           </div>
         </div>
