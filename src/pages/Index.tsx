@@ -1,13 +1,11 @@
-
-import React from 'react';
-import { Navbar } from '@/components/layout/Navbar';
-import { HeroSection } from '@/components/home/HeroSection';
-import { FeaturesSection } from '@/components/home/FeaturesSection';
-import { ComponentsShowcase } from '@/components/home/ComponentsShowcase';
-import { InstallSection } from '@/components/home/InstallSection';
-import { TestimonialsSection } from '@/components/home/TestimonialsSection';
-import { CTASection } from '@/components/home/CTASection';
-import { Footer } from '@/components/layout/Footer';
+import { AgentsShowcase } from "@/components/home/AgentsShowcase";
+import { CTASection } from "@/components/home/CTASection";
+import { FeaturesSection } from "@/components/home/FeaturesSection";
+import { HeroSection } from "@/components/home/HeroSection";
+import { InstallSection } from "@/components/home/InstallSection";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
 
 const Index = () => {
   return (
@@ -16,7 +14,7 @@ const Index = () => {
       <main className="flex-1">
         <HeroSection />
         <FeaturesSection />
-        <ComponentsShowcase />
+        <AgentsShowcase />
         <InstallSection />
         <TestimonialsSection />
         <CTASection />

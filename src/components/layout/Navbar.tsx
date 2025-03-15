@@ -1,30 +1,24 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Github, Menu } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Github, Menu } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export const Navbar = () => {
   const isMobile = useIsMobile();
-  
+
   const navItems = [
-    { label: 'Docs', href: '/docs' },
-    { label: 'Components', href: '/components' },
-    { label: 'Examples', href: '/examples' },
-    { label: 'GitHub', href: 'https://github.com' },
+    { label: "Docs", href: "/docs" },
+    { label: "Agents", href: "/agents" },
+    { label: "Examples", href: "/examples" },
   ];
 
   const NavLinks = () => (
     <>
       {navItems.map((item) => (
-        <Link 
-          key={item.label} 
+        <Link
+          key={item.label}
           to={item.href}
           className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
         >
@@ -42,10 +36,10 @@ export const Navbar = () => {
             <div className="h-6 w-6 bg-primary rounded-sm flex items-center justify-center">
               <span className="font-bold text-primary-foreground text-sm">A</span>
             </div>
-            <span className="font-bold hidden md:inline-block">AgentScape</span>
+            <span className="font-bold hidden md:inline-block">Agentscape</span>
           </Link>
         </div>
-        
+
         {isMobile ? (
           <Sheet>
             <SheetTrigger asChild>
@@ -60,11 +54,18 @@ export const Navbar = () => {
             </SheetContent>
           </Sheet>
         ) : (
-          <nav className="flex items-center ml-6 space-x-6 text-sm font-medium flex-1">
-            <NavLinks />
+          <div className="flex items-center flex-1">
+            <nav className="flex items-center ml-6 space-x-6 text-sm font-medium">
+              <NavLinks />
+            </nav>
             <div className="flex items-center space-x-4 ml-auto">
               <Button variant="outline" size="sm" asChild>
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center space-x-2">
+                <a
+                  href="https://github.com/japborst/agentscape"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center space-x-2"
+                >
                   <Github className="h-4 w-4" />
                   <span>GitHub</span>
                 </a>
@@ -73,7 +74,7 @@ export const Navbar = () => {
                 <span>Get Started</span>
               </Button>
             </div>
-          </nav>
+          </div>
         )}
       </div>
     </header>

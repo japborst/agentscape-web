@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Terminal } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Terminal } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -10,26 +9,30 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-10"></div>
       <div className="absolute h-[500px] w-[500px] rounded-full bg-primary/20 blur-[150px] -top-40 -right-40"></div>
       <div className="absolute h-[400px] w-[600px] rounded-full bg-accent/10 blur-[130px] bottom-0 -left-40"></div>
-      
+
       <div className="container px-4 md:px-6 flex flex-col items-center text-center relative z-10">
         <div className="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium mb-6">
-          <span className="bg-primary/20 text-primary rounded-sm px-1.5 py-0.5 text-xs mr-2">NEW</span>
-          <span className="text-muted-foreground">Introducing AgentScape v1.0</span>
+          <span className="bg-primary/20 text-primary rounded-sm px-1.5 py-0.5 text-xs mr-2">
+            NEW
+          </span>
+          <span className="text-muted-foreground">Introducing Agentscape v1.0</span>
         </div>
-        
+
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">
-          Build AI agents with<br />beautifully designed components
+          Build AI agents with
+          <br />
+          ready-to-go components
         </h1>
-        
+
         <p className="text-muted-foreground max-w-[700px] text-lg mb-8">
-          A collection of open source, production-ready AI agent components for Python. 
-          Simply install with uv and integrate — just like shadcn.
+          A collection of open source, production-ready AI agent components for Python. Simply
+          install with <code>uv</code> and integrate — just like shadcn.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" asChild>
             <Link to="/docs" className="gap-2">
-              Get started 
+              Get started
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -51,24 +54,27 @@ export const HeroSection = () => {
             <pre className="text-left">
               <code className="flex flex-col">
                 <span className="flex items-center gap-2">
-                  <Terminal className="h-4 w-4 text-muted-foreground" /> 
-                  <span className="text-muted-foreground">$</span> 
-                  <span className="text-foreground">uv tool install agentscape</span>
+                  <Terminal className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-muted-foreground">$</span>
+                  <span className="text-foreground">uvx agentscape add search_agent</span>
                 </span>
                 <span className="mt-2 flex items-center gap-2">
-                  <span className="text-accent">✓</span> 
-                  <span>Would you like to install search agent? <span className="text-primary font-bold">Yes</span></span>
+                  <span className="text-accent">✓</span>
+                  <span>
+                    Would you like to install search_agent?{" "}
+                    <span className="text-primary font-bold">Yes</span>
+                  </span>
                 </span>
                 <span className="mt-2 flex items-center gap-2">
-                  <span className="text-accent">✓</span> 
+                  <span className="text-accent">✓</span>
                   <span>Installing dependencies...</span>
                 </span>
                 <span className="mt-2 flex items-center gap-2">
-                  <span className="text-accent">✓</span> 
+                  <span className="text-accent">✓</span>
                   <span>Creating component files...</span>
                 </span>
                 <span className="mt-2 flex items-center gap-2">
-                  <span className="text-accent">✓</span> 
+                  <span className="text-accent">✓</span>
                   <span>Success! Agent installed and ready to use.</span>
                 </span>
               </code>
