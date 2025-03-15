@@ -1,5 +1,6 @@
+
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Github, Menu } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -7,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export const Navbar = () => {
   const isMobile = useIsMobile();
+  const location = useLocation();
 
   const navItems = [
     { label: "Docs", href: "/docs" },
@@ -14,13 +16,21 @@ export const Navbar = () => {
     { label: "Examples", href: "/examples" },
   ];
 
+  const isActiveRoute = (path: string) => {
+    return location.pathname === path;
+  };
+
   const NavLinks = () => (
     <>
       {navItems.map((item) => (
         <Link
           key={item.label}
           to={item.href}
-          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          className={`text-sm font-medium transition-colors ${
+            isActiveRoute(item.href)
+              ? "text-foreground font-semibold"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
         >
           {item.label}
         </Link>
