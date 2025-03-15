@@ -17,7 +17,7 @@ const Agents = () => {
       icon: <Search className="h-6 w-6" />,
       tags: ["Retrieval", "Search", "Web"],
       path: "/components/search-agent",
-      usage: `import { SearchAgent } from "agentscape/agents";\n\nconst MyComponent = () => {\n  return (\n    <SearchAgent \n      sources={["docs", "knowledge-base"]} \n      apiKey={process.env.API_KEY}\n    />\n  );\n};`,
+      usage: `from agentscape.agents import SearchAgent\n\n# Initialize the search agent\nsearch_agent = SearchAgent(\n    sources=["docs", "knowledge-base"],\n    api_key=os.environ.get("API_KEY")\n)\n\n# Use the agent to perform a search\nresults = search_agent.search("How do I implement semantic search?")\nfor result in results:\n    print(f"Title: {result.title}\\nSource: {result.source}\\nRelevance: {result.score}")`
     },
     {
       title: "Chat Agent",
@@ -26,7 +26,7 @@ const Agents = () => {
       icon: <MessageSquare className="h-6 w-6" />,
       tags: ["Dialog", "Streaming", "Memory"],
       path: "/components/chat-agent",
-      usage: `import { ChatAgent } from "agentscape/agents";\n\nconst MyComponent = () => {\n  return (\n    <ChatAgent \n      systemPrompt="You are a helpful assistant" \n      apiKey={process.env.API_KEY}\n    />\n  );\n};`,
+      usage: `from agentscape.agents import ChatAgent\n\n# Initialize the chat agent\nchat_agent = ChatAgent(\n    system_prompt="You are a helpful assistant",\n    api_key=os.environ.get("API_KEY")\n)\n\n# Have a conversation\nresponse = chat_agent.chat("What can you help me with today?")\nprint(response)\n\n# Continue the conversation with history maintained\nfollow_up = chat_agent.chat("Can you elaborate on the first point?")\nprint(follow_up)`
     },
     {
       title: "Code Agent",
@@ -35,7 +35,7 @@ const Agents = () => {
       icon: <Code2 className="h-6 w-6" />,
       tags: ["Code", "Generation", "Analysis"],
       path: "/components/code-agent",
-      usage: `import { CodeAgent } from "agentscape/agents";\n\nconst MyComponent = () => {\n  return (\n    <CodeAgent \n      language="python" \n      apiKey={process.env.API_KEY}\n    />\n  );\n};`,
+      usage: `from agentscape.agents import CodeAgent\n\n# Initialize the code agent\ncode_agent = CodeAgent(\n    language="python",\n    api_key=os.environ.get("API_KEY")\n)\n\n# Generate code based on a description\ncode = code_agent.generate("Create a function that calculates the Fibonacci sequence")\nprint(code)\n\n# Explain existing code\nexplanation = code_agent.explain("def quicksort(arr):\\n    if len(arr) <= 1:\\n        return arr\\n    pivot = arr[len(arr) // 2]\\n    left = [x for x in arr if x < pivot]\\n    middle = [x for x in arr if x == pivot]\\n    right = [x for x in arr if x > pivot]\\n    return quicksort(left) + middle + quicksort(right)")\nprint(explanation)`
     },
     {
       title: "Function Agent",
@@ -44,7 +44,7 @@ const Agents = () => {
       icon: <Bot className="h-6 w-6" />,
       tags: ["Functions", "Tools", "Automation"],
       path: "/components/function-agent",
-      usage: `import { FunctionAgent } from "agentscape/agents";\n\nconst MyComponent = () => {\n  return (\n    <FunctionAgent \n      functions={[searchProducts, addToCart]} \n      apiKey={process.env.API_KEY}\n    />\n  );\n};`,
+      usage: `from agentscape.agents import FunctionAgent\n\n# Define functions the agent can use\ndef search_products(query: str):\n    # Implementation to search products\n    return ["Product 1", "Product 2"]\n\ndef add_to_cart(product_id: str, quantity: int = 1):\n    # Implementation to add product to cart\n    return {{"success": True, "message": f"Added {quantity} of {product_id} to cart"}}\n\n# Initialize the function agent with available tools\nfunction_agent = FunctionAgent(\n    functions=[search_products, add_to_cart],\n    api_key=os.environ.get("API_KEY")\n)\n\n# Let the agent handle a user request\nresult = function_agent.run("I want to buy a red t-shirt")\nprint(result)`
     },
     {
       title: "Reasoning Agent",
@@ -53,7 +53,7 @@ const Agents = () => {
       icon: <BrainCircuit className="h-6 w-6" />,
       tags: ["Reasoning", "Planning", "Logic"],
       path: "/components/reasoning-agent",
-      usage: `import { ReasoningAgent } from "agentscape/agents";\n\nconst MyComponent = () => {\n  return (\n    <ReasoningAgent \n      showSteps={true} \n      apiKey={process.env.API_KEY}\n    />\n  );\n};`,
+      usage: `from agentscape.agents import ReasoningAgent\n\n# Initialize the reasoning agent\nreasoning_agent = ReasoningAgent(\n    show_steps=True,\n    api_key=os.environ.get("API_KEY")\n)\n\n# Solve a complex problem with step-by-step reasoning\nproblem = "If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?"\nsolution = reasoning_agent.solve(problem)\n\n# The solution includes reasoning steps\nprint(f"Final answer: {solution.answer}")\nprint("\\nReasoning steps:")\nfor i, step in enumerate(solution.steps):\n    print(f"{i+1}. {step}")`
     },
   ];
 
