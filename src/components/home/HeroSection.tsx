@@ -15,7 +15,7 @@ export const HeroSection = () => {
           <span className="bg-primary/20 text-primary rounded-sm px-1.5 py-0.5 text-xs mr-2">
             NEW
           </span>
-          <span className="text-muted-foreground">Introducing Agentscape v1.0</span>
+          <span className="text-muted-foreground">Introducing Agentscape v0.1</span>
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">

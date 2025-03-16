@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  base: mode === 'production' ? '/agentscape-web/' : '/', // Only set in production
   plugins: [
     react(),
     mode === 'development' &&
